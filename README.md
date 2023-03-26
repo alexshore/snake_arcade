@@ -1,7 +1,5 @@
 # snake.py
 
----
-
 ## Requirements
 
 - Python 3.11+

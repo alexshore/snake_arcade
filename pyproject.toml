@@ -1,8 +1,8 @@
 [tool.poetry]
-name = "snake"
+name = "snake.py"
 version = "0.1.0"
 description = ""
-authors = ["kntrllr <as2970@york.ac.uk>"]
+authors = ["Alex Shore <as2970@york.ac.uk>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
@@ -12,7 +12,6 @@ numpy = "^1.24.2"
 
 [tool.poetry.group.dev.dependencies]
 black = "^23.1.0"
-ruff = "^0.0.259"
 
 [build-system]
 requires = ["poetry-core"]

@@ -6,7 +6,7 @@ authors = ["Alex Shore <as2970@york.ac.uk>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = "^3.11"
 arcade = "^2.6.17"
 numpy = "^1.24.2"
 

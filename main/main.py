@@ -2,8 +2,8 @@ import arcade
 import numpy as np
 from enum import Enum
 
-SCREEN_SIZE = 600
-GRID_SIZE = 30
+SCREEN_SIZE = 400
+GRID_SIZE = 20
 BLOCK_SIZE = SCREEN_SIZE // GRID_SIZE
 
 
@@ -32,20 +32,19 @@ class Snake(arcade.Window):
             anchor_x="center",
             anchor_y="top",
         )
-
         self.current_position = arcade.Text(
-            text=f"head pos: {self.head}",
-            font_size=24,
+            text=f"pos: {self.head}",
+            font_size=15,
             start_x=0,
             start_y=SCREEN_SIZE,
             anchor_x="left",
             anchor_y="top",
         )
-        self.current_position = arcade.Text(
-            text=f"fps: {arcade.get_fps()}",
-            font_size=24,
+        self.current_fps = arcade.Text(
+            text=f"fps: {arcade.get_fps():.0f}",
+            font_size=15,
             start_x=0,
-            start_y=SCREEN_SIZE - 36,
+            start_y=SCREEN_SIZE - 20,
             anchor_x="left",
             anchor_y="top",
         )
@@ -95,7 +94,9 @@ class Snake(arcade.Window):
                     )
 
         self.current_score.draw()
-        self.current_position.draw()
+        if self.debugging:
+            self.current_position.draw()
+            self.current_fps.draw()
 
     def on_update(self, delta_time: float):
         if self.game_over:
@@ -115,12 +116,14 @@ class Snake(arcade.Window):
         self.tiles[*self.head] = self.length
 
         self.current_score.text = f"score: {self.length - 1}"
-        self.current_position.text = f"{self.head}"
+        self.current_position.text = f"pos: {self.head}"
+        self.current_fps.text = f"fps: {arcade.get_fps():.0f}"
 
 
 def main():
     game = Snake()
     game.setup()
+    arcade.enable_timings()
     arcade.run()
 
 

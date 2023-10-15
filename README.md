@@ -1,4 +1,4 @@
-# snake.py
+# snake_arcade
 
 ## Requirements
 

@@ -1,6 +1,5 @@
 import arcade
 import numpy as np
-from enum import Enum
 
 SCREEN_SIZE = 400
 GRID_SIZE = 20
@@ -25,7 +24,7 @@ class Snake(arcade.Window):
         self.debugging = False
 
         self.current_score = arcade.Text(
-            text=f"score: 0",
+            text="score: 0",
             font_size=24,
             start_x=SCREEN_SIZE // 2,
             start_y=SCREEN_SIZE,
@@ -103,7 +102,13 @@ class Snake(arcade.Window):
             return
 
         self.head += self.current_direction
-        if self.head[0] < 0 or self.head[0] >= GRID_SIZE or self.head[1] < 0 or self.head[1] >= GRID_SIZE or self.tiles[*self.head] > 0:
+        if (
+            self.head[0] < 0
+            or self.head[0] >= GRID_SIZE
+            or self.head[1] < 0
+            or self.head[1] >= GRID_SIZE
+            or self.tiles[*self.head] > 0
+        ):
             self.game_over = True
             return
 
